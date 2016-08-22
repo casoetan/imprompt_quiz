@@ -1,0 +1,72 @@
+<!-- multistep form -->
+<form id="msform">
+  <!-- progressbar -->
+  <ul id="progressbar">
+    <li class="active">Account Setup</li>
+    <li data-ng-repeat="(key, quiz) in quizzes">Q {{ key + 1 }}</li>
+  </ul>
+  <!-- fieldsets -->
+  <fieldset>
+    <h2 class="fs-title">Enter your details</h2>
+    <h3 class="red">All fields are compulsory.</h3>
+    <!--<h3 class="red">The test is programmed to shut down after 45 minutes so kindly just list where required and give very brief explanations ONLY.</h3>-->
+    <input type="text" name="fullname" placeholder="Title and Full Name"
+      data-ng-model="responder.fullname" />
+    <input type="email" name="email" placeholder="Email"
+      data-ng-model="responder.email" />
+    <input type="text" name="phone" placeholder="Phone Number"
+      data-ng-model="responder.phone" />
+    <input type="text" name="department" placeholder="Your Department"
+      data-ng-model="responder.department" />
+    <input type="text" name="unit" placeholder="Your Unit"
+      data-ng-model="responder.unit" />
+
+    <input type="button" name="next" class="next action-button" value="Start" data-ng-click="nextStep($event)" ng-class="{ 'disabled': !responder.fullname || !responder.email || !responder.phone || !responder.department }" ng-disabled="!responder.fullname || !responder.email || !responder.phone || !responder.department || !responder.unit" />
+
+    <!--<h3 class="red">The test is programmed to shut down after 45 minutes so kindly just list where required and give very brief explanations ONLY.</h3>-->
+    <!--<h3 class="red">All fields are compulsory.</h3>
+    <input type="text" name="fullname" placeholder="Title and Full Name"
+      data-ng-model="responder.fullname" />
+    <input type="email" name="email" placeholder="Email"
+      data-ng-model="responder.email" />
+    <input type="text" name="phone" placeholder="Phone Number"
+      data-ng-model="responder.phone" />
+    <input type="text" name="zone" placeholder="Your Zone"
+      data-ng-model="responder.zone" />
+    <input type="text" name="chapter" placeholder="Your Chapter"
+      data-ng-model="responder.chapter" />
+    <input type="text" name="pastor" placeholder="Name of Church Pastor"
+      data-ng-model="responder.pastor" />
+    <input type="text" name="position" placeholder="Your Role in your Church"
+      data-ng-model="responder.position" />
+    <input type="text" name="birthdate" placeholder="Your Birthdate DD/MM/YYYY"
+      data-ng-model="responder.birthdate" />
+    <p>Click Start when ready</p>
+
+    <input type="button" name="next" class="next action-button" value="Start" data-ng-click="nextStep($event)" ng-class="{ 'disabled': !responder.fullname || !responder.email || !responder.phone || !responder.zone || !responder.chapter || !responder.birthdate }" ng-disabled="!responder.fullname || !responder.email || !responder.phone || !responder.zone || !responder.chapter || !responder.birthdate" />-->
+
+    <!--<input type="button" name="next" class="next action-button" value="Start" data-ng-click="nextStep($event)" />-->
+  </fieldset>
+
+  <fieldset data-ng-repeat="(key, quiz) in quizzes" id="quiz_{{ key + 1 }}">
+    <!--<timer autostart=false countdown=2700 interval="1000" timer-stopped="submitQuiz(responder)">
+      <div class="progress progress-striped active {{displayProgressActive}}" style="height: 30px;">
+        Remaining time : {{minutes}} minute{{minutesS}} {{seconds}} second{{secondsS}}
+        <div class="bar" style="min-width: 2em;width: {{progressBar}}%;"></div>
+      </div>
+    </timer>-->
+    <h2 class="fs-title">Question {{ key + 1 }}</h2>
+    <h3 class="fs-subtitle">{{ quiz.question }}</h3>
+
+    <textarea name="answers" id="answers" cols="30" rows="5" data-ng-model="responder.quiz[quiz.id]" placeholder="Your Answer"></textarea>
+
+    <input type="button" name="previous" class="previous action-button" value="Previous"
+      data-ng-click="previousStep($event)" />
+
+    <input type="button" name="next" class="next action-button" value="Next" data-ng-click="nextStep($event)" data-ng-if="quizzes.length > key+1" ng-disabled="!responder.quiz[quiz.id]" ng-class="{ 'disabled': !responder.quiz[quiz.id] }" />
+
+    <!--<input type="button" name="next" class="next action-button" value="Next" data-ng-click="nextStep($event)" data-ng-if="quizzes.length > key+1"/>-->
+
+    <input type="button" name="next" class="next action-button" value="Submit Quiz" data-ng-click="submitQuiz(responder)" data-ng-if="key+1 >= quizzes.length" />
+  </fieldset>
+</form>

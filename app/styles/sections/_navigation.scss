@@ -1,0 +1,97 @@
+#nav {
+  background: #000 !important;
+  opacity: .8;
+}
+
+.navbar-brand {
+  float: left;
+  font-size: 17px;
+  line-height: 20px;
+  padding: 0;
+  position: absolute;
+  top:-16px;
+}
+.navbar-nav > li > a {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  text-shadow:
+    -1px -1px 0 #333,
+    1px -1px 0 #333,
+    -1px 1px 0 #333,
+    1px 1px 0 #333 !important;
+}
+#nav.affix {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background:#1a1a1a;
+  background:rgba(38,38,38,1);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  z-index:1;
+}
+
+ul.nav{
+  margin-top:10px;
+}
+
+#nav > .navbar-inner {
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+.navbar-brand {
+  line-height: 16px;
+  padding: 16px;
+  img {
+    height: 48px;
+  }
+}
+.navbar{
+  background:#1a1a1a;
+  border:none;
+  border-radius:0;
+  z-index:99;
+  // min-height:80px;
+  margin-top:0px;
+}
+
+.navbar-nav > li > a{
+  color:#ffffff;
+  font-size: 14px;
+  font-weight:normal;
+  text-transform:uppercase;
+  padding:20px 10px 0;
+}
+
+.nav > li > a:focus{
+  background:none;
+}
+
+.nav > li > a:hover {
+  text-decoration: none;
+  background:none;
+}
+
+.nav > li.current a{
+  text-decoration: none;
+}
+
+.navbar-toggle{
+  border-radius:0;
+}
+
+.navbar-toggle .icon-bar{
+  background:#ffffff;
+}
+
+#navigation-container {
+  display: block;
+  width: 100%;
+  z-index:99;
+}
